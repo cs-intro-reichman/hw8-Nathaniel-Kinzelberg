@@ -142,18 +142,20 @@ public class Network {
     }
 
     // Returns a textual description of all the users in this network, and who they follow.
-public String toString() {
-    if (userCount == 0) {
-        return "Network:"; // Corrected for an empty network
+    @Override
+    public String toString() {
+        if (userCount == 0) {
+            return "Network:"; // Correct for an empty network
+        }
+    
+        StringBuilder description = new StringBuilder("Network:\n");
+    
+        // Iterate through all users
+        for (int i = 0; i < userCount; i++) {
+            description.append(users[i].toString().trim()).append("\n"); // Append each user's description with newline
+        }
+    
+        return description.toString().trim(); // Trim the final newline
     }
-
-    StringBuilder description = new StringBuilder("Network:\n"); // Start with "Network:\n"
-
-    // Iterate through all users and append their descriptions
-    for (int i = 0; i < userCount; i++) {
-        description.append(users[i].toString()).append("\n");
-    }
-
-    return description.toString().trim(); // Remove trailing newline for consistent output
-}
+    
 }
