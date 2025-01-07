@@ -46,7 +46,7 @@ public class Network {
     *  Otherwise, creates a new user with the given name, adds the user to this network, and returns true. */
     public boolean addUser(String name) {
 
-        if(userCount >= 1000){
+        if(userCount >= users.length){
             return false;
         }
 
@@ -68,6 +68,9 @@ public class Network {
         User user2 = getUser(name2);
 
         if(user1 == null || user2 == null){
+            return false;
+        }
+        if(name1.equals(name2)){
             return false;
         }
 
@@ -139,18 +142,18 @@ public class Network {
     }
 
     // Returns a textual description of all the users in this network, and who they follow.
-    public String toString() {
-        if (userCount == 0) {
-            return "No users in the network."; 
-        }
-    
-        StringBuilder description = new StringBuilder(); 
-    
-        
-        for (int i = 0; i < userCount; i++) {
-            description.append(users[i].toString()).append("\n");
-        }
-    
-        return description.toString(); 
+public String toString() {
+    if (userCount == 0) {
+        return "Network:"; // Corrected for an empty network
     }
+
+    StringBuilder description = new StringBuilder("Network:\n"); // Start with "Network:\n"
+
+    // Iterate through all users and append their descriptions
+    for (int i = 0; i < userCount; i++) {
+        description.append(users[i].toString()).append("\n");
+    }
+
+    return description.toString().trim(); // Remove trailing newline for consistent output
+}
 }
