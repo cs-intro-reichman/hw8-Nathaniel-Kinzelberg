@@ -58,11 +58,12 @@
             return false;
         }
 
-        if(fCount < follows.length){
-            follows[fCount] = name;
-            fCount++;
-            return true;
+        if(fCount >= follows.length){
+            return false;
         }
+
+        follows[fCount] = name;
+        fCount++;
 
         return false;
     }
