@@ -23,7 +23,8 @@
         follows[0] = "Foo";
         follows[1] = "Bar";
         follows[2] = "baz";
-        fCount = 3;
+        follows[3] = "Baz";
+        fCount = 4;
     }
 
     /** Returns the name of this user. */
