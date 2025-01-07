@@ -58,12 +58,11 @@
             return false;
         }
 
-        if(fCount >= follows.length){
-            return false;
+        if(fCount < follows.length){
+            follows[fCount] = name;
+            fCount++;
+            return true;
         }
-
-        follows[fCount] = name;
-        fCount++;
 
         return false;
     }
@@ -113,10 +112,13 @@
 
     /** Returns this user's name, and the names that s/he follows. */
     public String toString() {
-        String ans = name + " -> ";
+        StringBuilder ans = new StringBuilder(name + " -> ");
         for (int i = 0; i < fCount; i++) {
-            ans = ans + follows[i] + " ";
+            ans.append(follows[i]);
+            if (i < fCount - 1) {
+                ans.append(" "); // Add space only between followees
+            }
         }
-        return ans;
+        return ans.toString();
     }
 }
