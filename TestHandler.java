@@ -1413,7 +1413,7 @@ public class TestHandler {
     
     public boolean toStringTest2() {
         Network network = new Network(5, true);
-        String expected = "Network:\nFoo -> \nBar -> \nBaz -> ";
+        String expected = "Network:\nFoo -> \nBar -> \nBaz ->";
         String actual = "";
         try {
             actual += network.toString();
@@ -1427,7 +1427,7 @@ public class TestHandler {
         Network network = new Network(5, true);
         network.addFollowee("Foo", "Bar");
         network.addFollowee("Baz", "Foo");
-        String expected = "Network:\nFoo -> Bar \nBar -> \nBaz -> Foo ";
+        String expected = "Network:\nFoo -> Bar \nBar -> \nBaz -> Foo";
         String actual = "";
         try {
             actual += network.toString();
@@ -1442,7 +1442,7 @@ public class TestHandler {
         network.addUser("Alice");
         network.addUser("Bob");
         network.addFollowee("Alice", "Bob");
-        String expected = "Network:\nAlice -> Bob \nBob -> ";
+        String expected = "Network:\nAlice -> Bob \nBob ->";
         String actual = "";
         try {
             actual += network.toString();
